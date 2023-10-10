@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import {api} from './api';
+import astro from "./assets/header-img.svg";
+import { motion } from 'framer-motion';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -34,9 +36,10 @@ function App() {
   return (
       <div className={(typeof weather.main != "undefined") ? (
         (weather.main.temp > 30) ? "app sunny" :
+        (weather.main.temp < 5)  ? "app snowy" :
         (weather.weather[0].main === "Clear") ? "app clear" :
         (weather.weather[0].main === "Clouds") ? "app cloudy" :
-        (weather.weather[0].main === "Rain") ? "app rainy" :
+        (weather.weather[0].main === "Rain") || (weather.weather[0].main ==="Drizzle") ? "app rainy" :
         (weather.weather[0].main === "Mist") ? "app foggy" :
         (weather.weather[0].main === "Haze") ? "app haze" :
         (weather.weather[0].main === "Snow") ? "app snowy" :
@@ -53,12 +56,26 @@ function App() {
             <input 
               type="text"
               className="search-bar"
-              placeholder="Search..."
+              placeholder="Search Location..."
               onChange={e => setQuery(e.target.value)}
               value={query}
               onKeyDown={search}
             />
           </div>
+          {/* Conditional rendering of the welcome message */}
+          {query === '' && Object.keys(weather).length === 0 && ( // Show message if query is empty and weather data is not available
+            <div className="welcome-message">
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                transition={{ duration: 2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                >
+                <p>Welcome to <br/>Weather App</p>
+              </motion.div>
+              <img class="astro" src={astro}></img>
+            </div>
+            
+          )}
           {(typeof weather.main != "undefined") ? (
           <div>
             <div className="location-box">

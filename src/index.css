@@ -1,17 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-size: cover;
+  
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Varela round", sans-serif;
+  
 }
 
 .app {
-  background-size: 100vw 100vh;
-  transition: 0.4 ease;
+  /* background-size: 100vw 100vh; */
+  transition: ease;
+  background-image: url("./assets/nightsky.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  
 }
+
+.welcome-message{
+  font-family: "Varela round", sans-serif;
+  display: flex;
+  /* justify-content: flex-start; */
+  position: relative;
+  margin: 30px auto;
+  border-radius: 16px;
+  padding: 15px 25px;
+  color: #6990fa;
+  font-size: 52px;
+  font-weight: 700;
+  text-shadow: 3px 2px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  justify-content: space-between;
+  /* box-shadow: 3px 6px rgba(0, 0, 0, 0.2);  */
+}
+
+.clouds{
+  width: 10vw;
+  height: auto;
+  align-self: center;
+}
+
+.astro {
+  width: 400px;
+  animation-name : mymove;
+  animation-iteration-count : infinite;
+  animation-direction : alternate;
+  animation-duration : 1s;
+}
+
+@keyframes mymove {
+  from {transform: translateY(0px);}
+  to {transform: translateY(20px);}
+}
+
 
 .app.sunny{
   background-image: url('./assets/sunny.jpg');
@@ -19,6 +65,7 @@ body {
 
 .app.cloudy{
   background-image: url('./assets/cloudy.jpg');
+
 }
 
 .app.rainy{
@@ -69,25 +116,27 @@ main {
 }
 
 .search-box .search-bar {
+  font-family: "Varela round", sans-serif;
   display: block;
   width: 100%;
-  padding: 15px;
-  appearance: none;
+  padding: 10px;
+  /* appearance: none; */
   background: none;
-  border: none;
+  /* border: none; */
   outline: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 0px 0px 16px 16px;
+  background-color: transparent;
+  /* border-radius: 0px 0px 16px 16px; */
   margin-top: -25px;
-  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-  color: #313131;
-  font-size: 20px;
-  transition: 0.4s ease;
+  border: 1px solid rgb(194, 194, 251);
+  /* box-shadow: 0px 5px rgba(0, 0, 0, 0.2); */
+  color: #84a8f6;
+  font-size: 18px;
+  /* transition: 0.4s ease; */
+}
+.search-box .search-bar::placeholder{
+  color: #84a8f6;
 }
 
-.search-box .search-bar:focus {
-  background-color: rgba(255, 255, 255, 0.75);
-}
 
 .location-box .location {
   color: #FFF;
@@ -141,4 +190,19 @@ main {
   font-weight: 300;
   text-align: center;
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+}
+
+
+
+@media (max-width: 640px){
+  .welcome-message{
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .astro{
+    width: 50vw;
+    align-self: center;
+  }
 }
