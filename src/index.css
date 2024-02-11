@@ -179,6 +179,11 @@ main {
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+.weather-box .temp .unit{
+  font-weight: 50;
+  font-size: small;
+}
+
 .weather-box .weather {
   color: #FFF;
   font-size: 48px;

@@ -250,14 +250,7 @@ const SearchWeather = () => {
             </ul>
           )}
         </div>
-        <div className="flex justify-center items-center">
-          <button onClick={() => setUnit('metric')}>
-            Metric
-          </button>
-          <button onClick={() => setUnit('imperial')}>
-            Imperial
-          </button>
-        </div>
+       
         {query === "" && Object.keys(weatherData || {}).length === 0 && (
           <div className="welcome-message">
             <motion.div
@@ -281,9 +274,18 @@ const SearchWeather = () => {
                 <div className="date">{dateBuilder(new Date())}</div>
               </div>
               <div className="weather-box">
+              
                 <div className="temp">
                   {unit === 'metric' && <div>{`${weatherData.main.temp}°C`}</div>}
                   {unit === 'imperial' && <div>{`${fahrenheitValue} F`}</div>}
+                  <div className="flex unit justify-center items-center space-x-4">
+          <button onClick={() => setUnit('metric')} className={`${unit==='metric'? 'border-b border-b-black':''} font-bold`}>
+            Celcius
+          </button>
+          <button onClick={() => setUnit('imperial')} className={`${unit==='imperial'? 'border-b border-b-black':''} font-bold`}>
+            Fahrenheit
+          </button>
+        </div>
                 </div>
                 <div className="weather">{weatherData.weather[0].main}</div>
                 <div className="description">
