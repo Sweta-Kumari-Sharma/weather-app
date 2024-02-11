@@ -31,10 +31,10 @@ const SearchWeather = () => {
 
   useEffect(() => {
     if (weatherData && unit === 'imperial') {
-      const fahrenheit = (weatherData.main.temp * (9 / 5)) + 32;
-      setFahrenheitValue(fahrenheit);
+      const fahrenheit = ((weatherData.main.temp * (9 / 5)) + 32).toFixed(2);
+      setFahrenheitValue(parseFloat(fahrenheit));
     }
-  }, [unit, weatherData]);
+}, [unit, weatherData]);
 
   const searchWeather = async (search) => {
     try {

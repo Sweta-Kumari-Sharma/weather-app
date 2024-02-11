@@ -8,7 +8,7 @@ const App = () => {
     <div>
        <BrowserRouter>
     <Routes>
-            <Route path='/' element={<StateSummaryDashboard />} />
+            <Route path='/' element={<SearchWeather />} />
             {/* <Route path='/statewise-summary' element={<StateSummaryDashboard />} /> */}
           
         </Routes>
