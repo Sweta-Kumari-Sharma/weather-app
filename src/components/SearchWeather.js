@@ -277,7 +277,7 @@ const SearchWeather = () => {
               
                 <div className="temp">
                   {unit === 'metric' && <div>{`${weatherData.main.temp}°C`}</div>}
-                  {unit === 'imperial' && <div>{`${fahrenheitValue} F`}</div>}
+                  {unit === 'imperial' && <div>{`${fahrenheitValue}F`}</div>}
                   <div className="flex unit justify-center items-center space-x-4">
           <button onClick={() => setUnit('metric')} className={`${unit==='metric'? 'border-b border-b-black':''} font-bold`}>
             Celcius
